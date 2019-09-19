@@ -1,0 +1,71 @@
+
+    <mat-card class="example-card">
+        
+            <h3>User List</h3>
+
+        <button mat-raised-button color="primary" class="f-right" (click)="openDialog()">Add User</button>
+
+        <div class="container mat-elevation-z8 mt-2">
+
+            <mat-table #tableMarine [dataSource]="userDataSource" matSort class="mat-cell">
+
+                <ng-container matColumnDef="firstName">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>First Name</mat-header-cell>
+                    <mat-cell *matCellDef="let row">{{row.firstName}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="lastName">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Last Name </mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.lastName}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="userName">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>User Name</mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.userName}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="city">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>City</mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.city}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="department">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Department</mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.department}}</mat-cell>
+                </ng-container>
+
+
+                <!-- <ng-container matColumnDef="actions">
+                    <mat-header-cell *matHeaderCellDef>
+                        <button mat-stroked-button color="primary" (click)="addNew(marine)">Add Customer</button>
+                    </mat-header-cell>
+
+                    <mat-cell *matCellDef="let row; let i=index;">
+                        <button mat-icon-button color="primary" (click)="editClient(row,marine)">
+                            <mat-icon aria-label="Edit">edit</mat-icon>
+                        </button>
+
+                        <button mat-icon-button color="primary" (click)="deleteClient(row,marine)">
+                            <mat-icon aria-label="Delete">delete</mat-icon>
+                        </button>
+                    </mat-cell>
+                </ng-container> -->
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+
+
+            <div class="no-results" *ngIf="userDataSource && userDataSource.filteredData.length == 0"
+                [style.display]="userDataSource.filteredData.length == 0 ? '' : 'none'">
+                No results
+            </div>
+
+            <mat-paginator #paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+        </div>
+
+</mat-card>
+
+   
+

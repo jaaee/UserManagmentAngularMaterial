@@ -1,0 +1,75 @@
+<div class="container">
+    <h3 mat-dialog-title>Add New User</h3>
+
+    <form [formGroup]="addUserForm">
+
+        <div class="row">
+            <mat-form-field>
+                <input matInput placeholder="First Name" formControlName="firstName" required>
+                <mat-error align="end"
+                    *ngIf="addUserForm.controls.firstName.invalid && addUserForm.controls.firstName.touched">
+                    <span *ngIf="addUserForm.controls.firstName.errors.required">
+                        First Name is
+                        <strong>required.</strong>
+                    </span>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field>
+                <input matInput placeholder="Last Name" formControlName="lastName"  required>
+                <mat-error align="end"
+                    *ngIf="addUserForm.controls.lastName.invalid && addUserForm.controls.lastName.touched">
+                    <span *ngIf="addUserForm.controls.lastName.errors.required">
+                        Last Name is
+                        <strong>required.</strong>
+                    </span>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field>
+                <input matInput placeholder="Username" formControlName="userName" required>
+                <mat-error align="end"
+                    *ngIf="addUserForm.controls.userName.invalid && addUserForm.controls.userName.touched">
+                    <span *ngIf="addUserForm.controls.userName.errors.required">
+                        Username is
+                        <strong>required.</strong>
+                    </span>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field>
+                <input matInput placeholder="City" formControlName="city" required>
+
+                <mat-error align="end"
+                    *ngIf="addUserForm.controls.city.invalid && addUserForm.controls.city.touched">
+                    <span *ngIf="addUserForm.controls.city.errors.required">
+                        City is
+                        <strong>required.</strong>
+                    </span>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field>
+                <input matInput placeholder="Department" formControlName="department" required>
+
+                <mat-error align="end"
+                    *ngIf="addUserForm.controls.department.invalid && addUserForm.controls.department.touched">
+                    <span *ngIf="addUserForm.controls.department.errors.required">
+                       Department is
+                        <strong>required.</strong>
+                    </span>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div mat-dialog-actions>
+            <button mat-button  (click)="addUser()">Save</button>
+            <button mat-button (click)="onNoClick()" tabindex="-1">Cancel</button>
+        </div>
+    </form>
+
+
+</div>
